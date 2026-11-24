@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Haffee Rao | Associate SQA Engineer</title>
+  <meta name="description" content="Muhammad Haffee Rao, Associate SQA Engineer in Karachi. Manual, functional, regression, smoke and UAT testing of an enterprise HCM system, with SQL data validation on Oracle." />
+  <meta property="og:title" content="Muhammad Haffee Rao | Associate SQA Engineer" />
+  <meta property="og:description" content="Manual and functional QA for enterprise HCM, ESS and mobile apps. Test design, defect tracking and SQL data validation." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #111c2e;
+      --panel-2: #15243a;
+      --text: #edf4fb;
+      --muted: #a7b6c8;
+      --line: rgba(205, 222, 240, .13);
+      --cyan: #65d6d1;
+      --blue: #7ba8ff;
+      --violet: #b69cff;
+      --red: #ff8f8f;
+      --green: #7fe0a8;
+      --amber: #ffd27a;
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+    body {
+      margin: 0; color: var(--text); background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 82% 6%, rgba(123,168,255,.16), transparent 27rem),
+        radial-gradient(circle at 10% 30%, rgba(101,214,209,.10), transparent 25rem);
+      background-repeat: no-repeat;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 8px; }
+    .skip { position: absolute; left: -999px; top: 8px; background: var(--cyan); color: #07151c; padding: 8px 12px; border-radius: 8px; z-index: 50; }
+    .skip:focus { left: 12px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+
+    /* Navigation */
+    .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); background: rgba(11,18,32,.80); border-bottom: 1px solid var(--line); }
+    .nav-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.08rem; }
+    .brand span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: .9rem; align-items: center; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-cta { color: #07151c !important; background: var(--cyan); padding: 7px 14px; border-radius: 10px; font-weight: 700; }
+    .menu { display: none; border: 1px solid var(--line); color: var(--text); background: var(--panel); border-radius: 10px; padding: 8px 12px; font: inherit; font-size: .88rem; cursor: pointer; }
+
+    /* Hero */
+    .hero { padding: 88px 0 56px; display: grid; grid-template-columns: 1.35fr .65fr; gap: 48px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--cyan); text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 800; }
+    .dot { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 18px var(--cyan); }
+    h1 { font-size: clamp(2.5rem, 6vw, 5.1rem); line-height: 1.03; letter-spacing: -.06em; margin: 20px 0 16px; }
+    .gradient { background: linear-gradient(100deg, var(--cyan), var(--blue) 55%, var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { color: var(--muted); max-width: 660px; font-size: 1.07rem; margin: 0; }
+    .lead strong { color: var(--text); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; padding: 12px 18px; font-weight: 750; font-size: .92rem; border: 1px solid var(--line); transition: transform .2s ease, background .2s ease; cursor: pointer; }
+    .btn.primary { color: #07151c; background: linear-gradient(110deg, var(--cyan), #9ce8dc); border: 0; }
+    .btn.secondary { background: rgba(255,255,255,.04); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.secondary:hover { background: rgba(255,255,255,.08); }
+
+    .profile-card { padding: 26px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(145deg, rgba(21,36,58,.94), rgba(17,28,46,.74)); box-shadow: 0 24px 70px rgba(0,0,0,.24); }
+    .monogram { width: 74px; height: 74px; display: grid; place-items: center; border-radius: 22px; color: #07151c; font-size: 1.45rem; font-weight: 900; background: linear-gradient(135deg, var(--cyan), var(--blue)); }
+    .profile-card h2 { margin: 18px 0 2px; font-size: 1.3rem; letter-spacing: -.02em; }
+    .role { color: var(--cyan); font-size: .9rem; }
+    .profile-meta { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 16px; display: grid; gap: 10px; color: var(--muted); font-size: .88rem; }
+    .profile-meta div { display: flex; justify-content: space-between; gap: 12px; }
+    .profile-meta strong { color: var(--text); font-weight: 650; }
+    .profile-meta span { text-align: right; }
+
+    /* Stats strip */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding-bottom: 72px; }
+    .stat { border: 1px solid var(--line); border-radius: 16px; padding: 18px; background: rgba(17,28,46,.6); }
+    .stat b { display: block; font-size: 1.35rem; letter-spacing: -.03em; }
+    .stat span { color: var(--muted); font-size: .85rem; }
+
+    /* Sections */
+    section { padding: 72px 0; border-top: 1px solid var(--line); }
+    .section-kicker { color: var(--cyan); text-transform: uppercase; letter-spacing: .15em; font-size: .72rem; font-weight: 800; }
+    h2.section-title { font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1.1; letter-spacing: -.05em; margin: 9px 0 12px; }
+    .section-intro { color: var(--muted); max-width: 720px; margin: 0 0 30px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .card { background: rgba(17,28,46,.78); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+    .card h3 { margin: 10px 0 7px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .91rem; }
+    .icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; background: rgba(101,214,209,.11); color: var(--cyan); font-weight: 900; font-size: .85rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag { font-size: .77rem; color: #c9d8e9; border: 1px solid var(--line); background: rgba(255,255,255,.035); padding: 5px 10px; border-radius: 999px; }
+    .tag.hi { border-color: rgba(101,214,209,.4); color: var(--cyan); }
+
+    /* Experience timeline */
+    .timeline { display: grid; gap: 34px; }
+    .job { display: grid; grid-template-columns: .55fr 1.45fr; gap: 28px; }
+    .job-when { color: var(--cyan); font-size: .85rem; font-weight: 750; }
+    .job-when small { display: block; color: var(--muted); font-weight: 500; }
+    .job-body { border-left: 1px solid rgba(101,214,209,.42); padding: 0 0 4px 24px; position: relative; }
+    .job-body:before { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--cyan); left: -5px; top: 8px; }
+    .job-body h3 { margin: 0 0 2px; font-size: 1.2rem; }
+    .job-body .org { color: var(--muted); margin: 0; }
+    ul.clean { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    ul.clean li { margin: 7px 0; }
+    ul.clean li::marker { color: var(--cyan); }
+
+    /* Projects */
+    .project { display: flex; flex-direction: column; }
+    .project .year { font-size: .72rem; color: var(--cyan); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .project h3 { margin: 6px 0 8px; font-size: 1.08rem; }
+    .project ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .9rem; }
+    .project ul li { margin: 6px 0; }
+    .project ul li::marker { color: var(--cyan); }
+    .project .tag-list { margin-top: auto; padding-top: 16px; }
+
+    /* QA samples */
+    .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .case { background: rgba(17,28,46,.78); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; }
+    .case-top { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; gap: 10px; background: rgba(123,168,255,.07); border-bottom: 1px solid var(--line); }
+    .case-top strong { font-size: .85rem; letter-spacing: .04em; }
+    .pill { font-size: .7rem; font-weight: 800; letter-spacing: .08em; padding: 3px 9px; border-radius: 999px; border: 1px solid currentColor; }
+    .pill.cyan { color: var(--cyan); } .pill.red { color: var(--red); } .pill.green { color: var(--green); } .pill.amber { color: var(--amber); }
+    .case-body { padding: 18px 20px 20px; flex: 1; }
+    .case-body h3 { margin: 0 0 10px; font-size: 1.05rem; }
+    .case-body p { margin: 7px 0; color: var(--muted); font-size: .88rem; }
+    .case-body b { color: var(--text); }
+    .case-body ol { margin: 4px 0 8px; padding-left: 20px; color: var(--muted); font-size: .88rem; }
+    .kv { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: .85rem; margin-bottom: 10px; }
+    .kv dt { color: var(--muted); } .kv dd { margin: 0; }
+    pre { margin: 10px 0 0; padding: 14px 16px; border-radius: 12px; background: #0a1322; border: 1px solid var(--line); overflow-x: auto; font-family: var(--mono); font-size: .8rem; line-height: 1.55; color: #d6e3f2; }
+    .c { color: #6f839b; } .k { color: var(--violet); } .s { color: var(--green); } .f { color: var(--blue); }
+    .sample-note { border: 1px dashed rgba(101,214,209,.35); border-radius: 14px; padding: 13px 16px; margin-top: 18px; color: var(--muted); font-size: .83rem; }
+
+    /* Approach */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; counter-reset: step; }
+    .step { padding: 19px; border: 1px solid var(--line); border-radius: 16px; background: rgba(17,28,46,.58); }
+    .step:before { counter-increment: step; content: "0" counter(step); color: var(--cyan); font-weight: 900; font-size: .78rem; letter-spacing: .12em; }
+    .step h3 { margin: 8px 0 5px; font-size: 1rem; }
+    .step p { color: var(--muted); font-size: .87rem; margin: 0; }
+
+    /* Education */
+    .edu { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .edu h3 { margin: 0; font-size: 1.15rem; }
+    .edu p { margin: 2px 0 0; color: var(--muted); }
+    .edu .when { color: var(--cyan); font-weight: 750; font-size: .9rem; }
+
+    /* Contact */
+    .contact-box { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 30px; border-radius: 22px; border: 1px solid rgba(101,214,209,.25); background: linear-gradient(110deg, rgba(101,214,209,.10), rgba(123,168,255,.08)); }
+    .contact-box h3 { margin: 0 0 5px; font-size: 1.5rem; letter-spacing: -.02em; }
+    .contact-box p { margin: 0; color: var(--muted); }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    footer { padding: 26px 0 34px; color: var(--muted); font-size: .82rem; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    button.btn { font: inherit; font-weight: 750; font-size: .92rem; color: inherit; }
+    button.btn.primary { color: #07151c; }
+    .link-btn { background: none; border: 0; padding: 0; font: inherit; color: var(--cyan); cursor: pointer; }
+    .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; z-index: 60;
+      background: var(--panel-2); color: var(--text); border: 1px solid rgba(101,214,209,.45); border-radius: 12px; padding: 11px 16px;
+      font-size: .9rem; box-shadow: 0 12px 40px rgba(0,0,0,.35); transition: opacity .2s ease, transform .2s ease; max-width: calc(100% - 32px); text-align: center; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 60px; gap: 28px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .job { grid-template-columns: 1fr; gap: 10px; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 22px; background: #101b2c; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 14px; }
+      .nav-links.open { display: flex; }
+      .menu { display: block; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 32px, var(--max)); }
+      .grid, .grid.two, .case-grid, .steps { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      .contact-box { align-items: flex-start; flex-direction: column; padding: 23px; }
+      h1 { font-size: 2.6rem; }
+      .btn { flex: 1 1 auto; }
+    }
+    @media print {
+      .nav, .actions, .menu { display: none; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">Haffee<span>.</span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#samples">QA Samples</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+      <button class="menu" id="menuBtn" aria-controls="navLinks" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <div class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Associate SQA Engineer &middot; Karachi, Pakistan</div>
+        <h1>Testing with purpose.<br /><span class="gradient">Quality by design.</span></h1>
+        <p class="lead">I'm <strong>Muhammad Haffee Rao</strong>, an Associate SQA Engineer with 10+ months of hands-on testing on an enterprise Human Capital Management (HCM) system. I test HR, attendance, leave and approval workflows end to end, validate data with SQL on Oracle, and work closely with developers to verify and close defects before release.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">View my work</a>
+          <a class="btn secondary" href="Muhammad_Haffee_Rao_CV.pdf" download>Download CV</a>
+          <button type="button" class="btn secondary copy-email" data-email="haffeerao.cs@gmail.com">Copy email</button>
+          <a class="btn secondary" href="https://www.linkedin.com/in/muhammad-haffee-rao-324713339" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        </div>
+      </div>
+      <aside class="profile-card" aria-label="Profile summary">
+        <div class="monogram" aria-hidden="true">HR</div>
+        <h2>Muhammad Haffee Rao</h2>
+        <div class="role">Associate SQA Engineer &middot; SmartHCM</div>
+        <div class="profile-meta">
+          <div><strong>Focus</strong><span>Manual &amp; functional QA</span></div>
+          <div><strong>Domain</strong><span>HCM, ESS &amp; mobile apps</span></div>
+          <div><strong>Data checks</strong><span>SQL on Oracle</span></div>
+          <div><strong>Automation</strong><span>Playwright (Python) basics</span></div>
+          <div><strong>Education</strong><span>BS CS, SZABIST</span></div>
+          <div><strong>LinkedIn</strong><span><a href="https://www.linkedin.com/in/muhammad-haffee-rao-324713339" target="_blank" rel="noopener" style="color:var(--cyan)">muhammad-haffee-rao &#8599;</a></span></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap stats" aria-label="Highlights">
+      <div class="stat"><b>10+ months</b><span>testing an enterprise HCM product</span></div>
+      <div class="stat"><b>4 test types</b><span>functional, regression, smoke, UAT</span></div>
+      <div class="stat"><b>SQL</b><span>data validation on Oracle databases</span></div>
+      <div class="stat"><b>QA &amp; Staging</b><span>fix verification before every release</span></div>
+    </div>
+
+    <!-- About -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-kicker">01 / About me</div>
+        <h2 class="section-title">Curious, detail-oriented,<br />and requirement-driven.</h2>
+        <p class="section-intro">I hold a BS in Computer Science and started in QA as an intern on the SmartHCM product before moving into an Associate SQA role. My work covers HR, attendance, leave, approval workflows, Employee Self-Service and mobile app features, from requirement review to release sign-off.</p>
+        <div class="grid">
+          <article class="card"><div class="icon">01</div><h3>Understand the workflow</h3><p>I review requirements, business rules, user roles and dependencies before I write a single test case.</p></article>
+          <article class="card"><div class="icon">02</div><h3>Test beyond the happy path</h3><p>Positive, negative, boundary, permission and end-to-end scenarios, plus SQL checks so the screen and the database agree.</p></article>
+          <article class="card"><div class="icon">03</div><h3>Communicate clearly</h3><p>Reproducible defect reports with clear steps, expected and actual results, and evidence developers can act on.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-kicker">02 / Skills</div>
+        <h2 class="section-title">What I work with.</h2>
+        <p class="section-intro">A strong manual QA foundation, backed by SQL, with automation skills growing.</p>
+        <div class="grid">
+          <article class="card"><h3>Testing</h3><p>The test types I run every release cycle.</p>
+            <div class="tag-list"><span class="tag hi">Manual</span><span class="tag hi">Functional</span><span class="tag">Regression</span><span class="tag">Smoke</span><span class="tag">UAT</span><span class="tag">Workflow &amp; approval</span><span class="tag">Role-based access</span><span class="tag">Data validation</span></div></article>
+          <article class="card"><h3>QA Process</h3><p>How I plan, design and track testing.</p>
+            <div class="tag-list"><span class="tag">SDLC</span><span class="tag">STLC</span><span class="tag">Test planning</span><span class="tag">Test case design</span><span class="tag">Test scenarios</span><span class="tag">Requirement analysis</span><span class="tag">Bug reporting</span><span class="tag">Defect life cycle</span></div></article>
+          <article class="card"><h3>Tools</h3><p>What I use day to day, and what I'm learning.</p>
+            <div class="tag-list"><span class="tag hi">JIRA</span><span class="tag hi">SQL (Oracle)</span><span class="tag">Playwright (Python)</span><span class="tag">Selenium</span><span class="tag">Postman</span><span class="tag">REST API testing</span></div></article>
+        </div>
+        <div class="grid two" style="margin-top:16px">
+          <article class="card"><h3>Domain knowledge</h3><p>Business rules I test against in an HCM product.</p>
+            <div class="tag-list"><span class="tag">Human Capital Management</span><span class="tag">Employee Self-Service</span><span class="tag">Attendance</span><span class="tag">Leave management</span><span class="tag">Payroll inputs</span><span class="tag">Request management</span><span class="tag">Multi-level approvals</span></div></article>
+          <article class="card"><h3>Ways of working</h3><p>How I work with the team.</p>
+            <div class="tag-list"><span class="tag">Reproduce with developers</span><span class="tag">Fix verification</span><span class="tag">Release testing</span><span class="tag">QA &amp; Staging environments</span><span class="tag">User documentation</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-kicker">03 / Experience</div>
+        <h2 class="section-title">Quality assurance in practice.</h2>
+        <p class="section-intro">From intern to Associate SQA Engineer on the same enterprise product.</p>
+        <div class="timeline">
+          <div class="job">
+            <div class="job-when">July 2026 &ndash; Present<small>Karachi, Pakistan</small></div>
+            <div class="job-body">
+              <h3>Associate SQA Engineer</h3>
+              <p class="org">SmartHCM</p>
+              <ul class="clean">
+                <li>Own end-to-end testing of SmartHCM modules, including Workflow Management and the Balance-Based RMS, from requirement review and feedback to release sign-off.</li>
+                <li>Design, execute and maintain test cases and scenarios for new features and change requests across HR, attendance, leave and approval modules.</li>
+                <li>Validate multi-level approval workflows and role-based access, confirming each role can see and act only on the records it should.</li>
+                <li>Verify data accuracy with SQL queries on the Oracle database, checking leave balances and approved values against what the application displays.</li>
+                <li>Run functional, regression, smoke and UAT cycles before every release; log, track and verify defects with developers until they are closed.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-when">January 2026 &ndash; July 2026<small>Karachi, Pakistan</small></div>
+            <div class="job-body">
+              <h3>SQA Intern</h3>
+              <p class="org">SmartHCM</p>
+              <ul class="clean">
+                <li>Performed manual, functional and regression testing on the Workflow Management and Balance-Based RMS modules.</li>
+                <li>Wrote and executed test cases from business requirements and documented defects with clear steps to reproduce.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-kicker">04 / Projects</div>
+        <h2 class="section-title">Features I've tested end to end.</h2>
+        <p class="section-intro">A few of the features I tested end to end, with business details generalized.</p>
+        <div class="grid">
+          <article class="card project">
+            <div class="year">2026 &middot; SmartESS</div>
+            <h3>Attendance Sheet &ndash; Monthly Attendance Approval</h3>
+            <ul>
+              <li>Tested the full monthly approval chain (HOD &rarr; Unit Incharge &rarr; CEO &rarr; payroll), including manual corrections, remarks, return-with-reason and final approval.</li>
+              <li>Checked present days, absent days and absent hours against raw check-in/check-out records using SQL.</li>
+              <li>Verified that employees, HODs and approvers each see only their own data.</li>
+            </ul>
+            <div class="tag-list"><span class="tag">Workflow</span><span class="tag">Role-based access</span><span class="tag">SQL</span></div>
+          </article>
+          <article class="card project">
+            <div class="year">2026 &middot; SmartESS</div>
+            <h3>Leave Application &ndash; Hourly and Night-Shift Leave</h3>
+            <ul>
+              <li>Verified To Time and leave-hours calculation for day and overnight shifts, including capping at required hours and off-day validation.</li>
+              <li>Used AI-assisted UI automation (Playwright with Python) to repeat end-to-end runs across scenarios.</li>
+            </ul>
+            <div class="tag-list"><span class="tag">Boundary testing</span><span class="tag">Calculations</span><span class="tag">Playwright</span></div>
+          </article>
+          <article class="card project">
+            <div class="year">2026 &middot; SmartHCM / SmartESS 5.0</div>
+            <h3>Release Testing &amp; SmartESS 5.0 User Manual</h3>
+            <ul>
+              <li>Built and hosted feature branches locally against the QA database to test fixes before merge.</li>
+              <li>Diagnosed environment blockers such as version checks and missing workflow setup.</li>
+              <li>Prepared the client user manual for SmartESS 5.0 with step-by-step screenshots of each screen.</li>
+            </ul>
+            <div class="tag-list"><span class="tag">Release testing</span><span class="tag">Environments</span><span class="tag">Documentation</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- QA samples -->
+    <section id="samples">
+      <div class="wrap">
+        <div class="section-kicker">05 / QA samples</div>
+        <h2 class="section-title">How I document quality.</h2>
+        <p class="section-intro">Examples of how I write test cases, bug reports, SQL checks and automation, using generic sample data.</p>
+        <div class="case-grid">
+          <article class="case">
+            <div class="case-top"><strong>TEST CASE &middot; TC-01</strong><span class="pill cyan">FUNCTIONAL</span></div>
+            <div class="case-body">
+              <h3>Leave request cannot exceed available balance</h3>
+              <dl class="kv"><dt>Precondition</dt><dd>Employee has 2 days of annual leave balance</dd><dt>Priority</dt><dd>High</dd></dl>
+              <ol>
+                <li>Sign in as the employee and open Leave Application.</li>
+                <li>Select Annual Leave for 3 working days.</li>
+                <li>Submit the request.</li>
+              </ol>
+              <p><b>Expected:</b> Submission is blocked with a message that names the available balance (2 days). No request is saved.</p>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-top"><strong>TEST CASE &middot; TC-02</strong><span class="pill green">ACCESS CONTROL</span></div>
+            <div class="case-body">
+              <h3>Approver sees only their own team's requests</h3>
+              <dl class="kv"><dt>Precondition</dt><dd>Two managers with separate teams; each team has a pending request</dd><dt>Priority</dt><dd>High</dd></dl>
+              <ol>
+                <li>Sign in as Manager A and open the approval inbox.</li>
+                <li>Search for the request raised by Manager B's team member.</li>
+              </ol>
+              <p><b>Expected:</b> Only Manager A's team requests are listed; the other request cannot be opened or approved.</p>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-top"><strong>BUG REPORT &middot; BR-01</strong><span class="pill red">MAJOR</span></div>
+            <div class="case-body">
+              <h3>Overnight shift leave hours calculated as negative</h3>
+              <dl class="kv"><dt>Environment</dt><dd>QA build, Chrome</dd><dt>Severity</dt><dd>Major &middot; Priority High</dd></dl>
+              <ol>
+                <li>Employee on a 22:00&ndash;06:00 shift applies for hourly leave 23:00&ndash;02:00.</li>
+                <li>Check the calculated leave hours before submitting.</li>
+              </ol>
+              <p><b>Expected:</b> 3 hours.</p>
+              <p><b>Actual:</b> &minus;21 hours; the end time is treated as the same day.</p>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-top"><strong>BUG REPORT &middot; BR-02</strong><span class="pill amber">MINOR</span></div>
+            <div class="case-body">
+              <h3>Generic message when a required field is empty</h3>
+              <dl class="kv"><dt>Environment</dt><dd>QA build, Chrome</dd><dt>Severity</dt><dd>Minor &middot; Priority Medium</dd></dl>
+              <ol>
+                <li>Open a request form, leave a mandatory field blank and submit.</li>
+              </ol>
+              <p><b>Expected:</b> The missing field is highlighted and named in the message.</p>
+              <p><b>Actual:</b> &ldquo;Please fill all fields&rdquo; appears without identifying the field.</p>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-top"><strong>DATA CHECK &middot; SQL-01</strong><span class="pill cyan">SQL</span></div>
+            <div class="case-body">
+              <h3>Screen balance matches the database</h3>
+              <p>After an approval, I confirm that the balance shown on screen equals the stored values.</p>
+<pre><span class="c">-- Balance must equal entitled minus availed</span>
+<span class="k">SELECT</span> employee_id, leave_type,
+       entitled, availed, balance,
+       entitled - availed <span class="k">AS</span> expected_balance
+<span class="k">FROM</span>   leave_balances
+<span class="k">WHERE</span>  employee_id = :emp_id
+<span class="k">AND</span>    balance &lt;&gt; entitled - availed;  <span class="c">-- expect 0 rows</span></pre>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-top"><strong>AUTOMATION &middot; PW-01</strong><span class="pill green">PLAYWRIGHT</span></div>
+            <div class="case-body">
+              <h3>Repeatable end-to-end leave submission</h3>
+              <p>A simple Playwright (Python) script I use to re-run the same scenario across builds.</p>
+<pre><span class="k">from</span> playwright.sync_api <span class="k">import</span> expect
+
+<span class="k">def</span> <span class="f">test_submit_leave</span>(page):
+    page.goto(BASE_URL + <span class="s">"/login"</span>)
+    page.fill(<span class="s">"#username"</span>, <span class="s">"test.employee"</span>)
+    page.fill(<span class="s">"#password"</span>, PASSWORD)
+    page.click(<span class="s">"text=Sign in"</span>)
+    page.click(<span class="s">"text=Leave Application"</span>)
+    page.select_option(<span class="s">"#leaveType"</span>, <span class="s">"Annual"</span>)
+    page.click(<span class="s">"text=Submit"</span>)
+    expect(page.get_by_text(<span class="s">"Request submitted"</span>)).to_be_visible()</pre>
+            </div>
+          </article>
+        </div>
+        <div class="sample-note">All samples use generic data and simplified screens. No client data, screenshots or internal requirements are shown.</div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-kicker">06 / Testing approach</div>
+        <h2 class="section-title">From requirement to release.</h2>
+        <div class="steps">
+          <article class="step"><h3>Understand</h3><p>Review requirements, roles, conditions and dependencies; raise questions early.</p></article>
+          <article class="step"><h3>Design</h3><p>Write positive, negative, boundary and workflow scenarios with clear expected results.</p></article>
+          <article class="step"><h3>Execute</h3><p>Run the tests, record actual results and capture evidence, including SQL checks.</p></article>
+          <article class="step"><h3>Report</h3><p>Log defects with reproducible steps, severity and expected versus actual behaviour.</p></article>
+          <article class="step"><h3>Retest</h3><p>Verify each fix against the original defect conditions before closing it.</p></article>
+          <article class="step"><h3>Regress</h3><p>Check related screens and workflows for unintended impact before release.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <div class="wrap">
+        <div class="section-kicker">07 / Education</div>
+        <div class="card edu" style="margin-top:14px">
+          <div>
+            <h3>BS Computer Science</h3>
+            <p>SZABIST</p>
+          </div>
+          <div class="when">Graduated June 2025</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-kicker">08 / Contact</div>
+        <div class="contact-box" style="margin-top:14px">
+          <div>
+            <h3>Let's talk about software quality.</h3>
+            <p>Open to SQA opportunities, collaboration and professional discussions. Based in Karachi, Pakistan.</p>
+          </div>
+          <div class="contact-links">
+            <button type="button" class="btn primary copy-email" data-email="haffeerao.cs@gmail.com" title="Click to copy">haffeerao.cs@gmail.com &#10697;</button>
+            <a class="btn secondary" href="https://www.linkedin.com/in/muhammad-haffee-rao-324713339" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>&copy; <span id="year">2026</span> Muhammad Haffee Rao</span>
+      <span>Associate SQA Engineer &middot; <a href="https://www.linkedin.com/in/muhammad-haffee-rao-324713339" target="_blank" rel="noopener" style="color:var(--cyan)">LinkedIn</a> &middot; <button type="button" class="link-btn copy-email" data-email="haffeerao.cs@gmail.com">Copy email</button></span>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Copy email to clipboard instead of opening a mail app
+    const toast = document.createElement('div');
+    toast.className = 'toast'; toast.setAttribute('role', 'status'); toast.setAttribute('aria-live', 'polite');
+    document.body.appendChild(toast);
+    let toastTimer;
+    function showToast(msg) {
+      toast.textContent = msg; toast.classList.add('show');
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+    function legacyCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      ta.remove(); return ok;
+    }
+    document.querySelectorAll('.copy-email').forEach(btn => btn.addEventListener('click', async () => {
+      const email = btn.dataset.email;
+      let ok = false;
+      try { await navigator.clipboard.writeText(email); ok = true; } catch (e) { ok = legacyCopy(email); }
+      showToast(ok ? 'Email copied: ' + email : 'My email: ' + email);
+    }));
+
+    // Highlight the current section in the nav
+    const links = [...navLinks.querySelectorAll('a[href^="#"]')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      sections.forEach(s => obs.observe(s));
+    }
+  </script>
+</body>
+</html>
